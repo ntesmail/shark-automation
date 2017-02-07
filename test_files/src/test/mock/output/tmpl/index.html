@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta http-equiv="Content-type" content="text/html;charset=utf-8"/>
+        <title>Index - 测试页面</title>
+        <meta http-equiv="Content-Style-Type" content="text/css"/>
+        <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+        <meta name="Author" content="netease"/>
+<!-- build:css /style/css/style.css -->
+<link type="text/css" href="/style/css/style.css" rel="stylesheet"/>
+<!-- endbuild -->    </head>
+    <body>
+    <div class="success">
+        <h1>Hello world !</h1>
+        <h2>cwebmail.mail.163.com</h2>
+        <div>
+            <span>ddd服务器时间：</span> <span id="time"></span>
+            <img src="/style/img/bg.png">
+        </div>
+        <div class="w-icon icon-alipay"></div>
+        <a href="/demo/test1.jsp">test1.html</a>
+        <a href="/demo/test2.jsp">test2.html</a>
+    </div>
+<!-- build:js(src/main/webapp) /js/vender.js -->
+<script type="text/javascript" src="/js/lib/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="/js/lib/sea.js"></script>
+<!-- endbuild -->
+    <script type="text/javascript">
+    seajs.config({
+        base : '/js'
+    });
+    </script>
+<script type="text/javascript" src="/js/common.js"></script>
+    
+    <script type="text/javascript" src="/js/module/index/index.page.js"></script>
+
+    </body>
+</html>

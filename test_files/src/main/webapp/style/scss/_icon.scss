@@ -1,0 +1,39 @@
+/**
+* @name		图片合并
+* @desc             
+==================================== */
+ 
+/* 	
+ 
+function:
+1. sprite-map($glob,...); // 手动合成图片关键的一步，省略处表示可填入多个参数来控制最终合成图的模型
+2. sprite-url(sprite-map($glob,...)); // 手动生成sprite图片
+3. sprite-path(sprite-map($glob,...)); // 返回图片的最终路径，eg：icons-xxxxx.png
+
+mixins:
+1. @mixin sprites($map, $sprite-names, $base-class: false, $dimensions: false, $prefix: sprite-map-name($map), $offset-x: 0, $offset-y: 0)
+2. @mixin sprite-background-position($map, $sprite, $offset-x: 0, $offset-y: 0)
+3. @mixin sprite($map, $sprite, $dimensions: false, $offset-x: 0, $offset-y: 0)
+说明：此处的 $sprite，当要全局控制时，设置为 sprite-names($icons) ；当要控制单张图标时，设置为对应的小图文件名 "a" 。
+
+background-position的设置，各参数的意思如下：
+@mixin sprites($map, $sprite-names, $base-class: false, $dimensions: false, $prefix: sprite-map-name($map), $offset-x: 0, $offset-y: 0)
+
+*/
+
+/* 图标
+------------------- */
+.w-icon,
+.w-icon-normal{background-position: -9999px -9999px;display: inline-block;}
+// .w-icon{width: 394px;height: 322px;}
+
+// .icon-chks-halfchk{@include sprite-background-position($icon,"chks-halfchk");}
+// .icon-chks-fullchk{@include sprite-background-position($icon,"chks-fullchk");
+
+/* 其他图标 */
+
+// $icon-normal : sprite-map("icon-normal/*.png", $spacing: 10px);  /* */
+// $icon-normal-url : sprite-url($icon-normal);
+// $icon-normal-path : sprite-path($icon-normal);
+// .w-icon-normal{@extend %inline-block;background-image: $icon-normal;}
+// @include sprites($icon-normal,sprite-names($icon-normal),false,true);

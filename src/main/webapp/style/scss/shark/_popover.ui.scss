@@ -1,0 +1,152 @@
+.popover {
+    &,
+    * {
+        box-sizing: border-box;
+    }
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: $shark-popover-zindex;
+    font-size: $shark-popover-font-size;
+    max-width: $shark-popover-maxwidth;
+    border: 1px solid $shark-border;
+    border-radius: $border-radius-base;
+    .popover-title {
+        padding: $shark-popover-padding;
+        color: $shark-popover-title-color;
+        background-color: $shark-popover-title-bg;
+        border-bottom: 1px solid $shark-popover-title-border;
+    }
+    .popover-content {
+        overflow-x: auto;
+        overflow-y: auto;
+        padding: $shark-popover-padding;
+        color: $shark-popover-content-color;
+        background-color: $shark-popover-content-bg;
+    }
+    .arrow,
+    .arrow:after {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+    }
+    &.right {
+        .arrow {
+            left: -$shark-popover-arrowouterwidth;
+            top: 50%;
+            margin-top: -$shark-popover-arrowouterwidth;
+            border-right: $shark-popover-arrowouterwidth solid $shark-border;
+            border-top: $shark-popover-arrowouterwidth solid transparent;
+            border-bottom: $shark-popover-arrowouterwidth solid transparent;
+            border-left: none;
+            &:after {
+                content: '';
+                left: 1px;
+                top: -$shark-popover-arrowwidth;
+                border-right: $shark-popover-arrowwidth solid #ffffff;
+                border-top: $shark-popover-arrowwidth solid transparent;
+                border-bottom: $shark-popover-arrowwidth solid transparent;
+                border-left: none;
+            }
+        }
+    }
+    &.left {
+        .arrow {
+            right: -$shark-popover-arrowouterwidth;
+            top: 50%;
+            margin-top: -$shark-popover-arrowouterwidth;
+            border-right: none;
+            border-top: $shark-popover-arrowouterwidth solid transparent;
+            border-bottom: $shark-popover-arrowouterwidth solid transparent;
+            border-left: $shark-popover-arrowouterwidth solid $shark-border;
+            &:after {
+                content: '';
+                right: 1px;
+                top: -$shark-popover-arrowwidth;
+                border-right: none;
+                border-top: $shark-popover-arrowwidth solid transparent;
+                border-bottom: $shark-popover-arrowwidth solid transparent;
+                border-left: $shark-popover-arrowwidth solid #ffffff;
+            }
+        }
+    }
+    &.bottom {
+        .arrow {
+            top: -$shark-popover-arrowouterwidth;
+            left: 50%;
+            margin-left: -$shark-popover-arrowouterwidth;
+            border-right: $shark-popover-arrowouterwidth solid transparent;
+            border-top: none;
+            border-bottom: $shark-popover-arrowouterwidth solid $shark-border;
+            border-left: $shark-popover-arrowouterwidth solid transparent;
+            &:after {
+                content: '';
+                left: -$shark-popover-arrowwidth;
+                top: 1px;
+                border-right: $shark-popover-arrowwidth solid transparent;
+                border-top: none;
+                border-bottom: $shark-popover-arrowwidth solid #ffffff;
+                border-left: $shark-popover-arrowwidth solid transparent;
+            }
+        }
+    }
+    &.top {
+        .arrow {
+            bottom: -$shark-popover-arrowouterwidth;
+            left: 50%;
+            margin-left: -$shark-popover-arrowouterwidth;
+            border-right: $shark-popover-arrowouterwidth solid transparent;
+            border-top: $shark-popover-arrowouterwidth solid $shark-border;
+            border-bottom: none;
+            border-left: $shark-popover-arrowouterwidth solid transparent;
+            &:after {
+                content: '';
+                left: -$shark-popover-arrowwidth;
+                bottom: 1px;
+                border-right: $shark-popover-arrowwidth solid transparent;
+                border-top: $shark-popover-arrowwidth solid #ffffff;
+                border-bottom: none;
+                border-left: $shark-popover-arrowwidth solid transparent;
+            }
+        }
+    }
+}
+
+.shark-popover.shark-tooltip{
+    border-radius: $shark-tooltip-radius;
+    .popover-content {
+        color: $shark-tooltip-content-color;
+        background-color: $shark-tooltip-content-bg;
+    }
+    &.right {
+        .arrow {
+            &:after {
+                border-right: $shark-popover-arrowwidth solid $shark-tooltip-content-bg;
+            }
+        }
+    }
+    &.left {
+        .arrow {
+            &:after {
+                border-left: $shark-popover-arrowwidth solid $shark-tooltip-content-bg;
+            }
+        }
+    }
+    &.bottom {
+        .arrow {
+            &:after {
+                border-bottom: $shark-popover-arrowwidth solid $shark-tooltip-content-bg;
+            }
+        }
+    }
+    &.top {
+        .arrow {
+            &:after {
+                border-top: $shark-popover-arrowwidth solid $shark-tooltip-content-bg;
+            }
+        }
+    }
+}

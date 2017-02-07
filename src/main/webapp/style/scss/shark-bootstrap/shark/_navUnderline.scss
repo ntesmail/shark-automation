@@ -1,0 +1,30 @@
+// Underline
+// -------------------------
+.nav-underline {
+  @extend .nav;
+  > li {
+    float: left;
+
+    + li {
+      margin-left: 2px;
+    }
+
+    // Active state
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $nav-underline-active-link-hover-color;
+      }
+    }
+    &.active:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: $nav-underline-height;
+    display: block;
+    background-color: $nav-underline-active-link-hover-bg;
+    }
+  }
+}

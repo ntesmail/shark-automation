@@ -1,0 +1,68 @@
+ul.shark-tree{
+    &,* {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+}
+.shark-tree{
+    font-size: 0;
+    li {
+        padding: 2px 0px;
+        list-style: none;
+        label {
+            display: block;
+        }
+        ul{
+            display:none;
+            &.tree-open {
+                display: block;
+            }
+        }
+    }
+    .tree-icon,.tree-node-name{
+        cursor: pointer;
+        display: inline-block;
+    }
+    .tree-icon{
+        font-size: $shark-tree-font-size;
+        width: $shark-tree-icon-size;
+        height: $shark-tree-icon-size;
+        vertical-align: top;
+        background-size: 100% 100%;
+        float: left;
+    }
+    .tree-node-name{
+        font-size: $shark-tree-font-size;
+        /*height: $shark-tree-icon-size;*/
+        line-height: $shark-tree-icon-size;
+        display: block;
+        overflow: hidden;
+    }
+    &.disabled {
+        .tree-icon,.tree-node-name{
+            cursor: default;
+            color: $shark-tree-disable-color;
+        }
+    }
+    .tree-icon-check{
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEUAAACIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIhjDG72AAAAD3RSTlMA5jtT4A+fSklAG/FeMSxlVxwlAAAASUlEQVQI12PAAhr/A8HHBgYGIRCPSYCB4QNY/AOEwbwAylAMgDBYncFSTBPYEsAMXmGTAIjiJzuhurgOwLWDSITJhWC7CuB2AwDh2iJE/F97swAAAABJRU5ErkJggg==);
+    }
+    .tree-icon-check-empty{
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAD1BMVEUAAACIiIiIiIiIiIiIiIhTGFtKAAAABHRSTlMAS+fkeQRH8QAAACdJREFUCNdjwAKEXIDASYCBQRHEY1RgYHAAiztQiwE3GWqXswDcbgATkwfuFORrngAAAABJRU5ErkJggg==);
+    }
+    .tree-icon-check-minus{
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAD1BMVEUAAACIiIiIiIiIiIiIiIhTGFtKAAAABHRSTlMA5UxJT3aN7AAAACxJREFUCNdjwAIMXYDA0YCBQQjEYxJgYHAAizvgZ4gAdQk4EKMYbjLCLhgAAGMgCR1GQI2wAAAAAElFTkSuQmCC);
+    }
+    .tree-icon-right{
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAIVBMVEUAAACIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIgnTYS+AAAAC3RSTlMABrWdsJmqkwh6eVcUOkAAAAAxSURBVAjXY0ACXA1QBrsiTChIAMpghQuZwISYHWFCZnAGQgqhGKEdYSDCCs4GBmQAABs+A/AaJMGkAAAAAElFTkSuQmCC);
+    }
+    .tree-icon-down{
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAFVBMVEUAAACIiIiIiIiIiIiIiIiIiIiIiIgPEjmxAAAAB3RSTlMAOzXjztlpaXfY9gAAACtJREFUCNdjIAmwCIBIFQYGJkMGKKEsAMJgHkQAxAUJgITMDKEaVQWItAEApMYCb1YUXYwAAAAASUVORK5CYII=);
+    }
+    .tree-node-selected{
+        color:  $shark-tree-selected-color;
+        background-color: $shark-tree-selected-bg;
+    }
+}
+

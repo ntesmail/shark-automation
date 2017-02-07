@@ -1,0 +1,60 @@
+html, body, div {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.g-head {
+  width: 100%;
+  min-width: 980px;
+  height: 60px;
+  overflow: hidden;
+}
+
+.g-head .g-header {
+  width: 980px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.g-bd {
+  width: 980px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.g-bd .g-side {
+  width: 110px;
+  padding-bottom: 9999px;
+  margin-bottom: -9999px;
+  float: left;
+}
+
+.g-bd .g-side.fix-side {
+  position: fixed;
+  padding: 0;
+  float: none;
+}
+
+.g-bd .g-content {
+  margin-left: 130px;
+}
+
+body.fix-head .g-head {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+body.fix-head .g-bd {
+  margin-top: 60px;
+}
+
+.g-bd.side-in-right .g-side {
+  float: right;
+}
+
+.g-bd.side-in-right .g-content {
+  margin-left: 0;
+  margin-right: 130px;
+}

@@ -1,0 +1,69 @@
+<div class="js-nav-target">
+	<h1 class="page-header">配置文件及配置项说明</h1>
+	<div class="explanation">
+		<p>使用该自动化构建工具时，需在项目根目录下创建一个配置文件，建议命名为shark-deploy-conf.js。以下对文件中的配置项作具体说明
+		</p>
+	</div>
+	<pre><code class="language-markup">
+// shark-deploy-conf.js
+module.exports = {
+    comment: '',  //项目说明
+    version: '1.0.0',  //版本号
+    product: 'shark-automation', //项目名称
+    contextPath: '/', //请求的根路径 默认为'/'
+    protocol: 'http', //项目使用的协议,默认为'http'
+    browserPort: 9000, //给browser sync使用的端口(必填)
+    port: 9100, //mock Server express 的端口号(必填)
+    hostname: 'localhost', //模拟域名（必填）
+    openurl: 'http://localhost:9000/index.html',//开发时，起好server后自动开发的url.(必填)
+    rootPath: __dirname, //项目根路径（必填）
+    webapp: 'src/main/webapp', //前端代码的根目录（必填）
+    mock: 'src/test/mock', //mock文件的根目录（必填）
+    scssPath: 'style/scss', //scss文件的目录，相对于webapp（必填）
+    cssPath: 'style/css', //scss编译成css文件的存放目录（必填）
+    imgPath: 'style/img', //img目录，相对于webapp（必填）
+    videoPath: 'style/video', //video目录，相对于webapp（必填）
+    jsPath: 'js', //js目录，相对于webapp（必填）
+    fontPath: 'fonts', //fonts目录，相对于webapp（必填）
+    htmlPath: 'views', //html目录，相对于webapp（必填）
+    templatePath: 'WEB-INF/tmpl', //ftl目录，相对于webapp（必填）
+    ajaxPrefix: '/xhr', //ajax请求的根路径（必填）
+    mimgPathPrefix: '/hxm', //静态资源请求的根路径（必填）
+    ifwebpack: true, //是否用webpack来打包js（必填）
+    remoteUrl: '', //前后端联调时，异步请求的转发地址
+    staticVersion: '2016', // 静态资源版本（必填）
+    tmpDir: '.tmp', //用来存放构建过程中生成的中间态资源的文件夹名称，默认为'.tmp'
+    build: 'build', // 用来存放构建好的资源的文件夹名称，默认为'build'
+    buildWebapp: 'app', // 用来存放html资源的文件夹名称，默认为'app'
+    buildStatic: 'mimg', // 用来存放静态资源的文件夹名称，默认为'mimg'
+    projectType: 'Angular', // 项目类型描述，如果是angular项目，为必填项。
+    ftl2html: [ //如果项目当中用到了freemarker，则需要配置该项
+            {
+                url: '/index.html$', // 请求的url的正则匹配.
+                sourceRoot: 'src/main/webapp/WEB-INF', // ftl文件所在根目录.
+                ftl: 'tmpl/index.ftl', // ftl文件响应路径
+                outputRoot: 'src/test/mock/output', //模拟数据的根目录
+                data: 'src/test/mock/tdd/oglobal.tdd,src/test/mock/tdd/index.tdd' // 用来渲染ftl模板的模拟数据
+            }
+        ],
+    //静态资源url根前缀设置（必填）
+    mimgURLPrefix: {
+        develop: '', //开发期间的静态资源url根前缀
+        online: '', //上线期间的的静态资源url根前缀
+        test: '' //测试期间的静态资源url根前缀
+    },
+    //部署配置项（必填）
+    deploy: {
+        path: '', //需要发布的资源路径
+        static: '', //需要发布的静态资源路径
+        giturl: '', //git仓库url
+        git: {
+            test: 'test', //测试仓库标识
+            online: 'deploy' //发布仓库标识
+        }
+    }
+};
+});
+</code></pre>
+
+</div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta http-equiv="Content-type" content="text/html;charset=utf-8"/>
+        <title>cart - 测试页面</title>
+        <meta http-equiv="Content-Style-Type" content="text/css"/>
+        <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+        <meta name="Author" content="netease"/>
+<!-- build:css /style/css/style.css -->
+<link type="text/css" href="/style/css/style.css" rel="stylesheet"/>
+<!-- endbuild -->        <!-- build:css /style/css/test1.css -->
+        <link type="text/css" href="/style/css/test1.css" rel="stylesheet"/>
+        <!-- endbuild -->
+    </head>
+    <body>
+    <div class="success">
+        <h1>Hello world !</h1>
+        <h2>cwebmail.mail.163.com/test1</h2>
+    </div>
+
+<!-- build:js(src/main/webapp) /js/vender.js -->
+<script type="text/javascript" src="/js/lib/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="/js/lib/sea.js"></script>
+<!-- endbuild -->
+    <script type="text/javascript">
+    seajs.config({
+        base : '/js'
+    });
+    </script>
+<script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/module/cart/main.js"></script>
+    
+    
+    <script type="text/javascript">
+    seajs.use('module/cart/main');
+    </script>
+    </body>
+</html>

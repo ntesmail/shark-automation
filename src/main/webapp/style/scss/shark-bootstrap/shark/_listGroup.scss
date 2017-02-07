@@ -1,0 +1,39 @@
+.list-group {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-bottom: 1px solid $list-group-border;
+    border-radius: 4px;
+    .list-group-item {
+        cursor: pointer;
+        &:hover {
+            text-decoration: none;
+            color: $list-group-link-hover-color;
+            background-color: $list-group-hover-bg;
+        }
+    }
+    .list-group-item.active {
+        &:hover {
+            z-index: 2; // Place active items above their siblings for proper border styling
+            color: $list-group-active-color;
+            background-color: $list-group-active-bg;
+            border-color: $list-group-active-border;
+        }
+    }
+}
+.list-group.shark-autocomplete-list-group{
+    max-height: $autoCompleteMaxHeight;
+}
+.list-group.shark-dropdown-list-group{
+    max-height: $dropdownMaxHeight;
+    min-width: 160px;
+}
+.list-group.shark-selecter-list-group{
+    max-height: $selecterMaxHeight;
+}
+.position-absolute {
+    position: absolute;
+}
+.position-relative {
+    position: relative;
+}

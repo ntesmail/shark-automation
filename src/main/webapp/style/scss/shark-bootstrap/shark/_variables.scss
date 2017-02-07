@@ -1,0 +1,96 @@
+$border-radius: $border-radius-small;
+$shark-base-color: $gray-light;
+
+/*字体*/
+$icomoon-font-path: "fonts" !default;
+$icon-equals: "\e900";
+$icon-help_outline: "\e8fd";
+$icon-search2: "\e8b6";
+$icon-drag_handle: "\e25d";
+$icon-warning-outline: "\e901";
+$icon-star: "\f005";
+$icon-stop: "\f04d";
+$icon-chevron-right: "\f054";
+$icon-chevron-down: "\f078";
+$icon-square-o: "\f096";
+$icon-exchange: "\f0ec";
+$icon-angle-double-right: "\f101";
+$icon-angle-right: "\f105";
+$icon-angle-down: "\f107";
+$icon-exclamation: "\f12a";
+$icon-play-circle: "\f144";
+$icon-minus-square-o: "\f147";
+$icon-toggle-down: "\f150";
+$icon-long-arrow-down: "\f175";
+$icon-long-arrow-up: "\f176";
+$icon-check-square-o: "\f046";
+$icon-chevron-left: "\f053";
+$icon-angle-left: "\f104";
+$icon-check: "\f00c";
+$icon-close: "\f00d";
+$icon-plus: "\f067";
+$icon-minus: "\f068";
+$icon-chevron-up: "\f077";
+$icon-angle-up: "\f106";
+$icon-user: "\f007";
+$icon-trash-o: "\f014";
+$icon-home: "\f015";
+$icon-clock-o: "\f017";
+$icon-lock: "\f023";
+$icon-edit: "\f044";
+$icon-calendar: "\f073";
+$icon-unlock: "\f09c";
+$icon-unlock-alt: "\f13e";
+
+$shark-base-indent: 15px !default;
+
+/*树组件*/
+$shark-tree-bg: $body-bg; //tree背景色
+$shark-tree-icon-size: 16px !default; //图标字体大小
+$shark-tree-icon-check: $icon-check-square-o;
+$shark-tree-icon-check-empty: $icon-square-o;
+$shark-tree-icon-check-minus: $icon-minus-square-o;
+$shark-tree-icon-angle-right: $icon-angle-right;
+$shark-tree-icon-angle-down: $icon-angle-down;
+$shark-tree-name-padding: 2px 3px !default; //节点名字的内边距
+$shark-tree-selected-color: $navbar-inverse-color; //选中节点后的字体色
+$shark-tree-selected-bgcolor: $navbar-inverse-bg; //选中节点后的背景色
+$shark-tree-disable-color: $gray-light; //不能选中节点字体色
+
+$shark-popover-padding: 10px !default; //外框的padding值
+$shark-popover-font-size: $font-size-base; //字体大小
+$shark-popover-radius: $border-radius;
+$shark-popover-border: $shark-base-color;
+$shark-popover-title-color: $shark-base-color;
+$shark-popover-title-bg: $brand-primary;
+$shark-popover-color: $shark-base-color;
+$shark-popover-bg: $popover-bg;
+$shark-popover-zindex: 1060 !default;
+$shark-popover-maxwidth: 276px !default;
+$shark-popover-maxheight: 300px !default;
+$shark-popover-arrowwidth: 10px !default;
+$shark-popover-arrowouterwidth: $shark-popover-arrowwidth + 1px;
+
+
+$autoCompleteMaxHeight: 300px;//autocomplete组件 出现滚动条的最大高度
+$dropdownMaxHeight: 400px;//dropdown组件 出现滚动条的最大高度
+$selecterMaxHeight: 400px;//selecter组件 出现滚动条的最大高度
+
+//下划线导航
+$nav-underline-height: 2px !default;
+$nav-underline-active-link-hover-color: $gray !default;
+$nav-underline-active-link-hover-bg: $component-active-bg;
+
+/*selecter组件*/
+
+$shark-selecter-padding: 0 $shark-base-indent !default;
+$shark-selecter-font-size: $font-size-base;
+$shark-selecter-radius: $border-radius !default;
+$shark-selecter-minwidth: 100px !default;
+$shark-selecter-labelheight: $shark-selecter-font-size * 2.5;
+$shark-selecter-color: $brand-primary;
+$shark-selecter-bg: $body-bg;
+$shark-selecter-disable-color: #ccc;
+$shark-selecter-disable-bg: $gray-lighter;
+$shark-selecter-caret-width: 4px !default;
+$shark-selecter-caret-color: $gray-dark;

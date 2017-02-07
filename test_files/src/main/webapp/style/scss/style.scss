@@ -1,0 +1,17 @@
+@import "icon";
+body{
+	margin: 0;
+	padding: 0;
+	background-color: gray; 
+	h1 {
+		line-height: 50px; 
+		text-align: center; 
+		color: blue;
+		background: url("/style/img/bg.png");
+	}
+	background: url(/style/img/bg.png) no-repeat;
+	h2 {
+		background: url('/style/img/bg.png');
+	}
+	
+}

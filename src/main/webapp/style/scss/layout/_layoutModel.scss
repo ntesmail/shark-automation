@@ -1,0 +1,70 @@
+html,body,div{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.g-head{
+	width: $head-width;
+	min-width: $bd-fixed-width; //最小宽与内容固定宽相等，为了修复头部右边可能出现背景图
+	height: $head-height;
+	overflow: hidden;
+	.g-header{
+		width: $bd-fixed-width;
+		height: 100%;
+		margin: 0 auto;
+	}
+}
+.g-bd{
+	width: $bd-fixed-width;
+	margin: 0 auto;
+	overflow: hidden; //消除侧边padding-bottom会将页面撑高的问题
+	.g-side{
+		width: $side-fixed-width;
+		padding-bottom: 9999px; //撑高侧边的高度
+    	margin-bottom: -9999px; //抵消padding-bottom
+    	float: left;
+		//侧边固定
+		&.fix-side{
+			position: fixed;
+			padding: 0;
+			float: none;
+		}
+	}
+	.g-content{
+		margin-left: $side-fixed-width + $side-content-gap;
+	}
+}
+// 固定底部
+.g-foot{
+	width: $head-width;
+	min-width: $bd-fixed-width; //最小宽与内容固定宽相等，为了修复头部右边可能出现背景图
+	overflow: hidden;
+	.g-footer{
+		width: $bd-fixed-width;
+		height: 100%;
+		margin: 0 auto;
+	}
+}
+// 固定头部
+body.fix-head{
+	.g-head{
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+	.g-bd{
+		margin-top: $head-height;
+	}
+}
+
+//左边自适应，右边定宽
+.g-bd.side-in-right{
+	.g-side{
+		float: right;
+	}
+	.g-content{
+		margin-left: 0;
+		margin-right: $side-fixed-width + $side-content-gap;
+	}
+}

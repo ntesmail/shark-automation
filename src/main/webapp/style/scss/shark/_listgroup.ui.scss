@@ -1,0 +1,95 @@
+.list-group {
+    &,
+    * {
+        box-sizing: border-box;
+    }
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+    }
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    box-sizing: border-box;
+    z-index: $shark-listgroup-zindex;
+    border-color: $shark-listgroup-border;
+    border-radius: 0 0 $shark-listgroup-radius $shark-listgroup-radius;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    .list-group-item {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        cursor: pointer;
+        @include text-ellipsis;
+        margin: 0;
+        padding: 10px 15px;
+        color: $shark-listgroup-item-color;
+        background: $shark-listgroup-item-bg;
+        border-bottom: 1px solid $shark-border;
+        &:hover {
+            color: $shark-listgroup-item-hover-color;
+            background: $shark-listgroup-item-hover-bg;
+        }
+        &:last-child,
+        &:last-child:hover {
+            border-bottom: none;
+            border-radius: 0 0 $shark-listgroup-radius $shark-listgroup-radius;
+        }
+    }
+    .active, .active:hover {
+        position: relative;
+        left: 0;
+        top: 0;
+        color: $white;
+        background: $brand-primary;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 5px;
+            display: inline-block;
+            top: 50%;
+            margin-top: -3px;
+        }
+        &.point:before {
+            height: 6px;
+            width: 6px;
+            border-radius: 6px;
+            background-color: $shark-listgroup-active-color;
+        }
+        &.nike:before {
+            height: 6px;
+            width: 3px;
+            border-right: solid 1px $shark-listgroup-active-color;
+            border-bottom: solid 1px $shark-listgroup-active-color;
+            transform: rotate(45deg);
+        }
+    }
+}
+.list-group.shark-autocomplete-list-group{
+    max-height: $autoCompleteMaxHeight;
+}
+.list-group.shark-dropdown-list-group{
+    max-height: $dropdownMaxHeight;
+    min-width: 160px;
+}
+.list-group.shark-selecter-list-group{
+    max-height: $selecterMaxHeight;
+}
+.position-absolute {
+    position: absolute;
+}
+.position-relative {
+    position: relative;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<% include layout/head.html%>
+
+	<body class="fix-head">
+		<%- headContent %>
+			<div class="g-bd side-in-right">
+				<div class="g-side">
+					<div class="bs-docs-sidebar" style="position:fixed;">
+						<ul class="nav nav-stacked js-nav">
+                            <li><a class="js-nav-item" href="javascript:void(0);" data-index="0">安装</a></li>
+							<li><a class="js-nav-item" href="javascript:void(0);" data-index="1">配置文件说明</a></li>
+							<li><a class="js-nav-item" href="javascript:void(0);" data-index="2">mock-server</a></li>
+							<li><a class="js-nav-item" href="javascript:void(0);" data-index="3">build-tasks</a></li>
+                            <li><a class="js-nav-item" href="javascript:void(0);" data-index="4">depoly-task</a></li>
+                            <li><a class="js-nav-item" href="javascript:void(0);" data-index="5">自定义npm包配置</a></li>
+                            <li><a class="js-nav-item" href="javascript:void(0);" data-index="6">其它说明</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="g-content">
+                    <% include components/install-type.html %>
+                    <% include components/config-file.html %>
+					<% include components/mock-server.html %>
+					<% include components/build-task.html %>
+					<% include components/depoly-task.html %>
+                    <% include components/config-module.html %>
+                    <% include components/other.html %>
+				</div>
+			</div>
+			<% include layout/foot.html%>
+
+				<script type="text/javascript">
+        var win = $(window);
+        var headHeight = $('#head').outerHeight();
+        var nav = $(".js-nav");
+        var navItems = $('.js-nav-item');
+        var navLis = navItems.parent();
+        var targetItems = $('.js-nav-target');
+        var lastActiveIndex;
+        var ticking = false; // rAF 触发锁
+
+        // 兼容requestAnimFrame
+        window.requestAnimFrame = (function(){
+            return  window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function( callback ){
+                window.setTimeout(callback, 1000 / 60);
+            };
+        })();
+        // 滚动触发的函数
+        function onscroll() {
+            if (!ticking) {
+                requestAnimationFrame(realFunc);
+                ticking = true;
+            }
+        }
+        // 计算现在active的应该是哪一个
+        function realFunc() {
+            var distance = win.scrollTop() + win.height();
+            var currentActiveIndex = null;
+            for (var i = 0; i < targetItems.length; i++) {
+                var target = $(targetItems[i]);
+                var top = target.offset().top + headHeight;
+                var height = target.outerHeight();
+                if ((distance > top && distance < (top + height)) || (i === (targetItems.length - 1) && distance > top)) {
+                    currentActiveIndex = i;
+                    break;
+                }
+            }
+            if (currentActiveIndex !== null && currentActiveIndex !== lastActiveIndex) {
+                lastActiveIndex = currentActiveIndex;
+                navLis.removeClass('active');
+                $(navLis[currentActiveIndex]).addClass('active');
+            }
+            ticking = false;
+        }
+        win.on('scroll', onscroll);
+        // 开始时先执行一次
+        realFunc();
+        nav.on("click", ".js-nav-item", function() {
+            var item = $(this);
+            item.blur(); // 消除focus样式
+            var currentActiveIndex = item.data('index');
+            if (currentActiveIndex !== null && currentActiveIndex !== lastActiveIndex) {
+                win.scrollTop($(targetItems[currentActiveIndex]).offset().top - headHeight);
+            }
+        });
+        </script>
+	</body>
+
+</html>

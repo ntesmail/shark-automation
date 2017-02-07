@@ -1,0 +1,23 @@
+//
+// Forms
+// --------------------------------------------------
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  padding: $padding-base-vertical $padding-base-horizontal;
+  box-sizing: border-box;
+  font-size: $font-size;
+  line-height: $line-height-base;
+  color: $input-color;
+  background-color: $input-bg;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid $gray-light;
+  border-radius: $border-radius-base; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+
+  &::-ms-expand {
+    border: 0;
+    background-color: transparent;
+  }
+}

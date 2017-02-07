@@ -1,0 +1,93 @@
+.pagination {
+    display: inline-block;
+    vertical-align: top;
+    padding: $shark-pager-padding;
+    font-size: $shark-pager-font-size;
+    border-radius: $border-radius-base;
+    &,
+    * {
+        box-sizing: border-box;
+    }
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+    }
+    >li {
+        display: inline;
+        > a,
+        > span {
+            cursor: pointer;
+            float: left;
+            padding: $padding-base-vertical $padding-base-horizontal;
+            color: $shark-pager-page-color;
+            background-color: $shark-pager-page-bg;
+            border: 1px solid $shark-pager-border;
+            margin-left: -1px;
+            line-height: $shark-pager-page-height;
+            &:hover {
+                background-color: $shark-pager-page-hover-color;
+                background-color: $shark-pager-page-hover-bg;
+            }
+        }
+        &.active {
+            > a,
+            > span {
+                &:hover {
+                    color: $shark-pager-page-current-color;
+                    background-color: $shark-pager-page-current-bg;
+                }
+            }
+        }
+    }
+    > .disabled > a,
+    > .disabled > a:hover {
+        cursor: $cursor-disabled;
+        color: $shark-pager-page-disable-color;
+        background-color: $shark-pager-page-disable-bg;
+    }
+    > .active > a {
+        cursor: default;
+        color: $shark-pager-page-current-color;
+        background-color: $shark-pager-page-current-bg;
+    }
+    > .gopage {
+        display: inline-block;
+        vertical-align: top;
+        .form-control {
+            width: $shark-pager-gobtn-width;
+            max-width: $shark-pager-gobtn-max-width;
+            height: 36px;
+            display: inline-block;
+            line-height: $shark-pager-page-height;
+            border: 1px solid $shark-pager-border;
+            outline: none;
+            margin-left: 10px;
+            padding: $padding-base-vertical $padding-base-horizontal;
+            float: left;
+            margin: 0 5px;
+        }
+        .btn {
+            cursor: pointer;
+            width: $shark-pager-gobtn-width;
+            display: inline-block;
+            line-height: $shark-pager-page-height;
+            outline: none;
+            margin-left: -1px;
+            vertical-align: top;
+            background-color: $shark-pager-gobtn-bg;
+            text-align: center;
+            &:hover {
+                color: $shark-pager-gobtn-hover-color;
+                background-color: $shark-pager-gobtn-hover-bg;
+            }
+        }
+    }
+
+}

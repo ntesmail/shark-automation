@@ -1,0 +1,11 @@
+/*@import '../shark-bootstrap/bootswatch-yeti/variables';*/
+$blockquote-font-size:       14px !default;
+
+@import '../shark-bootstrap/shark-bootstrap';
+/*@import '../shark-bootstrap/bootswatch-yeti/bootswatch';*/
+
+@import "prism";
+$side-fixed-width: 180px; //侧边固定宽
+$head-height: 60px; //头部固定高
+@import "../layout/layout";
+@import "common";

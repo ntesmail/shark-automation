@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test html</title>
+	<link rel="stylesheet" type="text/css" href="/style/css/style.css">
+</head>
+<body>
+<h1>
+	看看颜色变了没有<span id="time"></span>
+</h1>
+    <!-- build:js(src/main/webapp) /js/t1.js -->
+    <script type="text/javascript" src="/js/lib/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="/js/lib/sea.js"></script>
+    <!-- endbuild -->
+    <script type="text/javascript">
+    $.ajax({
+        type:'post',
+        url : '/deploy/xhr/user/getServerTime.do',
+        success : function (res) {
+            $('#time').html(res.data);
+        }
+    });
+    </script>
+</body>
+</html>

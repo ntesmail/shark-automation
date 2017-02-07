@@ -1,0 +1,26 @@
+.shark-toastr-container {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    margin-left: -125px;
+    z-index: 999999;
+}
+
+.toastr {
+    padding: 10px 20px;
+    border-radius: 3px;
+    margin: 2px 0;
+}
+
+.toastr-error {
+    color: #ffffff;
+    background-color: #bd362f;
+    border: 1px solid #d2b2b2;
+}
+
+.toastr-success {
+    color: #ffffff;
+    background-color: #51a351;
+    border: 1px solid #8cc685;
+}

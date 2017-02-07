@@ -1,0 +1,67 @@
+// Underline
+// -------------------------
+.nav {
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  @include clearfix;
+
+  > li {
+    position: relative;
+    display: block;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: $nav-link-padding;
+      text-decoration: none;
+	  color: $brand-primary;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: $nav-link-hover-bg;
+      }
+    }
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: $nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: $nav-disabled-link-hover-color;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: $cursor-disabled;
+      }
+    }
+  }
+}
+
+.nav-underline {
+  > li {
+    float: left;
+
+    + li {
+      margin-left: 2px;
+    }
+
+    // Active state
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $nav-underline-active-link-hover-color;
+      }
+    }
+    &.active:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: $nav-underline-height;
+      display: block;
+      background-color: $nav-underline-active-link-hover-bg;
+    } 
+  } 
+}

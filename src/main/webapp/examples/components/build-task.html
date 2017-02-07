@@ -1,0 +1,57 @@
+<div class="js-nav-target">
+	<h1 class="page-header">build-tasks</h1>
+	<div class="explanation">
+		<p>Shark-automation提供了用于源码的打包构建和静态资源处理的gulp任务集，例如：静态资源 的压缩，md5等。用户可根据自己的项目需要对这些任务集进行选择性的组装。</p>
+        <p>以下是提供的gulp任务列表，包含功能及依赖说明:</p>
+        <p>clean: 清空构建目录，基于gulp-clean</p>
+        <p>sass-preprocess: 将sass编译成css,基于gulp-sass</p>
+        <p>webpack-server:用webpack打包js. 基于webpack、webpack-stream</p>
+        <p>useref:合并html及ftl中引入的静态资源，基于gulp-useref</p>
+        <p>imagemin: 图片压缩， 基于gulp-imagemin</p>
+        <p>revision-image、revision-video: 图片和视频md5,基于gulp-rev</p>
+        <p>revreplace-css、revreplace-js: 图片资源md5后的路径替换， 基于gulp-rev-replace</p>
+        <p>revision-css、revision-js:css和js md5 基于gulp-rev</p>
+        <p>revreplace-html、revreplace-ftl: 静态资源路径替换， 基于gulp-rev-replace</p>
+        <p>copy-build: 把构建好的资源拷贝进最终的构建目录</p>
+        <p>zip：compress files to zip取决于gulp-zip，md5</p>
+        <p>zip: 文件zip压缩 基于gulp-zip、md5</p>
+	</div>
+	<pre><code class="language-markup">
+var gulp = require('gulp'),
+    argv = require('yargs').argv,
+    runSequence = require('run-sequence'),
+    sharkAutomation = require('shark-automation');
+var config = require('./shark-deploy-conf.js'); //config file
+
+gulp.task('build', function(cb) {
+    sharkAutomation.registerBuildTasks({
+        baseConf: config,
+        gulp: gulp
+    });
+    runSequence(
+        // clean folders
+        'clean',
+        // compass and copy to tmp1
+        ['sass-preprocess', 'webpack-server'],
+        // use reference in html and ftl
+        ['useref'],
+        // imagemin and copy to tmp2 
+        'imagemin', 
+        // revision images 
+        'revision-image',
+        // revreplace images
+        ['revreplace-css', 'revreplace-js'],
+        // revision css,js
+        ['revision-css', 'revision-js'],
+        // revreplace html,ftl
+        ['revreplace-html'],
+        // copy to build dir
+        ['copy-build'],
+        // callback
+        cb
+    );
+
+});
+</code></pre>
+
+</div>

@@ -1,12 +1,9 @@
-<div class="js-nav-target">
-	<h1 class="page-header">mock-server</h1>
 	<div class="explanation">
         提供基于express的mock-server，可用来处理开发时的各种请求（渲染请求，静态资源请求和模拟数据请求），
         对于模拟数据请求，用户需要自己根据请求路径，自己创建 对应的文件来响应请求。例如：请求路径：
         /xhr/demo/list.do，则需要在{config.ajaxPrefix}下创建与之对应的demo/list.do文件
 		<br>以下是一个在gulpfile.js中启动mock-server的完整示例:
-	</div>
-	<pre><code class="language-markup">
+        	<pre><code class="language-markup">
 var gulp = require('gulp'),
     sharkAutomation = require('shark-automation'),
     runSequence = require('run-sequence'),
@@ -39,5 +36,4 @@ gulp.task('serve', function(cb) {
     runSequence(['browser-sync', 'serve-express'], 'open-url', cb);
 });
 </code></pre>
-
-</div>
+	</div>

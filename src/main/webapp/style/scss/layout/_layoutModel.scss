@@ -21,8 +21,8 @@ html,body,div{
 	overflow: hidden; //消除侧边padding-bottom会将页面撑高的问题
 	.g-side{
 		width: $side-fixed-width;
-		padding-bottom: 9999px; //撑高侧边的高度
-    	margin-bottom: -9999px; //抵消padding-bottom
+		// padding-bottom: 9999px; //撑高侧边的高度
+    	// margin-bottom: -9999px; //抵消padding-bottom
     	float: left;
 		//侧边固定
 		&.fix-side{

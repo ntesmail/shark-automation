@@ -1,18 +1,15 @@
-<div class="js-nav-target">
-	<h1 class="page-header">自定义npm包配置</h1>
 	<div class="explanation">
 		Shark-automation注册的任务当中使用的npm包都有其默认配置，同时，提供了对这些包的自定义配置入口。你需要在向注册task函数传参时，将你要配置的包的名
-        称按照骆峰写法，作为参数对象的key，vlue作为你的配置项，即可自定义该npm包的配置。
+        称按照骆峰写法，作为参数对象的key，value作为你的配置项，即可自定义该npm包的配置。
+        <pre><code class="language-markup">
+            var sharkAutomation = require('shark-automation');
+            var config = require('./shark-deploy-conf.js'); //config file
+            sharkAutomation.registerTasks({
+                baseConf: config,
+                //包名gulp-sass--》骆峰写法：gulpSass
+                gulpSass: {
+                    //你自定义的配置项
+                }
+            });
+        </code></pre>
 	</div>
-	<pre><code class="language-markup">
-var sharkAutomation = require('shark-automation');
-var config = require('./shark-deploy-conf.js'); //config file
-sharkAutomation.registerTasks({
-    baseConf: config,
-    //包名gulp-sass--》骆峰写法：gulpSass
-    gulpSass: {
-     //你自定义的配置项
-    }
-});
-</code></pre>
-</div>

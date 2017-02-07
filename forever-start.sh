@@ -1,0 +1,1 @@
+forever start -a --uid "shark-automation" app.js --port 9005

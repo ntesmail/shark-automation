@@ -78,8 +78,8 @@ gulp.task('serve-express', function(cb) {
     // 模板目录
     app.set('views', path.join(__dirname, 'src/main/webapp/examples'));
 
-    var headContent = request('GET', 'http://shark.mail.netease.com/shark/static/head.html?v=shark-css').getBody();
-    var footContent = request('GET', 'http://shark.mail.netease.com/shark/static/foot.html?v=shark-css').getBody();
+    var headContent = request('GET', 'http://shark.mail.netease.com/shark/static/head.html?v=shark-automation').getBody();
+    var footContent = request('GET', 'http://shark.mail.netease.com/shark/static/foot.html?v=shark-automation').getBody();
 
     console.log(config.contextPath + '/index.html');
     // index.html

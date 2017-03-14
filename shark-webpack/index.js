@@ -8,13 +8,13 @@ var dllConf = require('./webpack.dll.config.js');
 var webpackDev = require('webpack-dev-middleware');
 var webpackHot = require('webpack-hot-middleware');
 var express = require('express');
-var util = require('../shark-util');
+var merge = require('webpack-merge');
 
 var sharkWebpack = {};
 
 sharkWebpack.registerServerTask = function(conf) {
     gulp = conf.gulp || gulp;
-    var baseConf = addCustomConf(webpackConf('server', conf.baseConf), conf.webpack);
+    var baseConf = addCustomConf(webpackConf('server', conf.baseConf), conf.webpack, conf.webpackMergeOption);
     var dest = path.join(conf.baseConf.rootPath, conf.baseConf.tmpDir, 'step1');
     baseConf.verbose = true;
     gulp.task('webpack-server', function() {
@@ -26,7 +26,7 @@ sharkWebpack.registerServerTask = function(conf) {
 
 sharkWebpack.serveStatic = function(conf) {
     gulp = conf.gulp || gulp;
-    var baseConf = addCustomConf(webpackConf('serve', conf.baseConf), conf.webpack);
+    var baseConf = addCustomConf(webpackConf('serve', conf.baseConf), conf.webpack, conf.webpackMergeOption);
     var compile = originalWebpack(baseConf);
     var router = express.Router();
     router.use(webpackDev(compile, {
@@ -36,17 +36,10 @@ sharkWebpack.serveStatic = function(conf) {
     return router;
 };
 
-function addCustomConf(baseConf, customConf) {
+function addCustomConf(baseConf, customConf, mergeOptions) {
     if (!customConf) return baseConf;
-    var targetConf = {};
-    if (customConf.addEntry) {
-        util.extend(baseConf.entry, customConf.addEntry);
-        delete customConf.addEntry;
-    } else if (customConf.replaceEntry) {
-        baseConf.entry = customConf.replaceEntry;
-        delete customConf.replaceEntry;
-    }
-    util.extend(targetConf, baseConf, customConf);
+    var mergeOptions = mergeOptions || {};
+    var targetConf = merge.smartStrategy(mergeOptions)(baseConf, customConf);
     return targetConf;
 }
 

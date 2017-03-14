@@ -2,49 +2,89 @@
 <html lang="en">
 
 <% include layout/head.html%>
-    <body class="fix-head">
-        <%- headContent %>
-            <div class="g-bd side-in-right">
-                <div class="g-side">
-                    <div class="bs-docs-sidebar">
-                        <ul class="nav nav-stacked" id="sideNav">
-                            <li><a href="#head">回到顶部</a></li>
-                            <li><a href="#install">安装</a></li>
-                            <li><a href="#configFile">配置文件说明</a></li>
-                            <li><a href="#mockServer">mock-server</a></li>
-                            <li><a href="#buildTask">build-tasks</a></li>
-                            <li><a href="#depolyTask">deploy-task</a></li>
-                            <li><a href="#configModule">自定义npm包配置</a></li>
-                            <li><a href="#other">其它说明</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="g-content">
-                    <h1 id ="head" class="page-header">前端自动化构建工具 Shark-automation</h1>
 
-                    <h1 id="install" class="page-header">安装</h1>
+	<body class="fix-head">
+		<%- headContent %>
+			<div class="g-bd side-in-right">
+				<div class="g-side">
+					<div class="bs-docs-sidebar" style="position:fixed;">
+						<ul class="nav nav-stacked js-nav">
+                            <li><a class="js-nav-item" href="javascript:void(0);" data-index="0">安装</a></li>
+							<li><a class="js-nav-item" href="javascript:void(0);" data-index="1">配置文件说明</a></li>
+							<li><a class="js-nav-item" href="javascript:void(0);" data-index="2">mock-server</a></li>
+							<li><a class="js-nav-item" href="javascript:void(0);" data-index="3">build-tasks</a></li>
+                            <li><a class="js-nav-item" href="javascript:void(0);" data-index="4">depoly-task</a></li>
+                            <li><a class="js-nav-item" href="javascript:void(0);" data-index="5">自定义npm包配置</a></li>
+                            <li><a class="js-nav-item" href="javascript:void(0);" data-index="6">其它说明</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="g-content">
                     <% include components/install-type.html %>
-
-                    <h1 id="configFile" class="page-header">配置文件及配置项说明</h1>
                     <% include components/config-file.html %>
-
-                    <h1 id="mockServer" class="page-header">mock-server</h1>
-                    <% include components/mock-server.html %>
-
-                    <h1 id="buildTask" class="page-header">build-tasks</h1>
-                    <% include components/build-task.html %>
-
-                    <h1 id="depolyTask" class="page-header">deploy-task</h1>
-                    <% include components/depoly-task.html %>
-
-                    <h1 id="configModule" class="page-header">自定义npm包配置</h1>
+					<% include components/mock-server.html %>
+					<% include components/build-task.html %>
+					<% include components/depoly-task.html %>
                     <% include components/config-module.html %>
-
-                    <h1 id="other" class="page-header">关于可能出现gulp-imagemin报错的处理说明</h1>
                     <% include components/other.html %>
-                </div>
-            </div>
-            <% include layout/foot.html%>
-    </body>
+				</div>
+			</div>
+			<% include layout/foot.html%>
+				<script type="text/javascript">
+        var win = $(window);
+        var headHeight = $('#head').outerHeight();
+        var nav = $(".js-nav");
+        var navItems = $('.js-nav-item');
+        var navLis = navItems.parent();
+        var targetItems = $('.js-nav-target');
+        var lastActiveIndex;
+        var ticking = false; // rAF 触发锁
+
+        // 兼容requestAnimFrame
+        window.requestAnimFrame = (function(){
+            return  window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function( callback ){
+                window.setTimeout(callback, 1000 / 60);
+            };
+        })();
+        // 滚动触发的函数
+        function onscroll() {
+            if (!ticking) {
+                requestAnimationFrame(realFunc);
+                ticking = true;
+            }
+        }
+        // 计算现在active的应该是哪一个
+        function realFunc() {
+            var distance = win.scrollTop() + win.height();
+            var currentActiveIndex = null;
+            for (var i = 0; i < targetItems.length; i++) {
+                var target = $(targetItems[i]);
+                var top = target.offset().top + headHeight;
+                var height = target.outerHeight();
+                if ((distance > top && distance < (top + height)) || (i === (targetItems.length - 1) && distance > top)) {
+                    currentActiveIndex = i;
+                    break;
+                }
+            }
+            if (currentActiveIndex !== null && currentActiveIndex !== lastActiveIndex) {
+                lastActiveIndex = currentActiveIndex;
+                navLis.removeClass('active');
+                $(navLis[currentActiveIndex]).addClass('active');
+            }
+            ticking = false;
+        }
+        win.on('scroll', onscroll);
+        // 开始时先执行一次
+        realFunc();
+        nav.on("click", ".js-nav-item", function() {
+            var item = $(this);
+            item.blur(); // 消除focus样式
+            var currentActiveIndex = item.data('index');
+            if (currentActiveIndex !== null && currentActiveIndex !== lastActiveIndex) {
+                win.scrollTop($(targetItems[currentActiveIndex]).offset().top - headHeight);
+            }
+        });
+        </script>
+	</body>
 
 </html>

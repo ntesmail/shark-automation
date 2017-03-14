@@ -9,6 +9,7 @@ var sharkCopy = require('./shark-copy');
 var sharkJava = require('./shark-java');
 var sharkZip = require('./shark-zip');
 var open = require('./shark-open');
+var sharkSprite = require('./shark-sprite');
 var express = require('express');
 var deploy = require('./shark-deploy');
 var extend = require('extend');
@@ -40,9 +41,15 @@ automation.registerBuildTasks = function (conf) {
     sharkCopy(conf);
     sharkZip(conf);
 };
+
+automation.registerSpriteTask = function (conf) {
+    sharkSprite(conf);
+};
+
 automation.registerDeployTasks = function (conf) {
     deploy(conf);
-}
+};
+
 automation.registerServerTasks = function (conf) {
     conf.baseConf = extend(false, defaultOpt, conf.baseConf);
     preprocess(conf, 'serve');

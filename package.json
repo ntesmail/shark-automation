@@ -1,9 +1,10 @@
 {
   "name": "shark-automation",
-  "version": "1.4.1",
+  "version": "1.4.7",
   "description": "前端自动化构建",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npm config set sass_binary_site \"https://npm.taobao.org/mirrors/node-sass\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -33,8 +34,10 @@
     "gulp-uglify": "^2.0.0",
     "gulp-useref": "^3.1.2",
     "gulp-zip": "^3.2.0",
+    "gulp.spritesmith": "^6.3.0",
     "jayschema": "^0.3.1",
     "md5": "^2.1.0 ",
+    "merge-stream": "^1.0.1",
     "prismjs": "^1.5.1",
     "pump": "^1.0.1",
     "request": "^2.74.0",
@@ -47,8 +50,8 @@
     "webpack-dev-middleware": "^1.4.0",
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.12.2",
+    "webpack-merge": "^4.0.0",
     "webpack-module-hot-accept": "^1.0.4",
-    "webpack-stream": "^3.2.0",
     "yargs": "^5.0.0"
   }
 }

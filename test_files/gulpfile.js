@@ -13,7 +13,7 @@ automation.registerBuildTasks({
 
 /***------------- build start ---------------***/
 
-gulp.task('build', function(cb) {
+gulp.task('build', function (cb) {
     var target = argv.target;
     if (!target) {
         throw new Error('--target should be provided. ex: gulp build --target test');
@@ -22,7 +22,7 @@ gulp.task('build', function(cb) {
         throw new Error('--target should be online or test or develop');
     }
 
-    gulp.on('error', function() {
+    gulp.on('error', function () {
         console.log('error error error error');
     });
 
@@ -51,7 +51,7 @@ gulp.task('build', function(cb) {
 
 });
 
-gulp.task('serve-express', function(cb) {
+gulp.task('serve-express', function (cb) {
     var app = express();
 
     var router = automation.registerServerRouter({
@@ -59,7 +59,7 @@ gulp.task('serve-express', function(cb) {
         gulp: gulp
     });
     app.use(router);
-    app.listen(config.port, function(err) {
+    app.listen(config.port, function (err) {
         if (err) {
             return console.log(err);
         }
@@ -69,11 +69,20 @@ gulp.task('serve-express', function(cb) {
 });
 
 
-gulp.task('serve', function(cb) {
+gulp.task('serve', function (cb) {
     automation.registerServerTasks({
         baseConf: config,
         gulp: gulp
     });
 
     runSequence(['browser-sync', 'serve-express'], 'open-url', cb);
+});
+
+//雪碧圖task
+gulp.task('sprites', function (cb) {
+    automation.registerSpriteTask({
+        baseConf: config,
+        gulp: gulp
+    });
+    cb();
 });

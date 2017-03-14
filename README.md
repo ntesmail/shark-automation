@@ -47,6 +47,15 @@ module.exports = {
                 data: 'src/test/mock/tdd/oglobal.tdd,src/test/mock/tdd/index.tdd' // the mock data for the ftl template
             }
         ],
+    sprite: { // sprite config options
+        imgSrcPath: 'styles/img/sourceSprites', //imgs source dir. required
+        imgDistPath: 'styles/img/distSprites',//sprites generate dir. required
+        scssPath: 'styles/scss/sprites', //scss generate  dir . required
+        imgPrefix: 'incon-sprites-',// the prefix of image name .not required
+        imgReferPath: '/styles/img/distSprites', // the url refer path for scss. required
+        templateType: 'px', // the type of template for generate css , not required
+        algorithm: 'binary-tree'// the algoritm for generate scss . not required 
+    },
     //required
     mimgURLPrefix: {
         develop: '', //the rootpath of static resource during develop phase

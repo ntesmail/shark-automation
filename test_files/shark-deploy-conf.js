@@ -4,10 +4,10 @@ module.exports = {
     product: 'shark-automation', //项目名称
     contextPath: '/', //请求的根路径
     protocol: 'http', //项目使用的协议
-    browserPort: 9000, //给browser sync使用的端口
-    port: 9100, //express 起的端口
+    browserPort: 9300, //给browser sync使用的端口
+    port: 9200, //express 起的端口
     hostname: '127.0.0.1', //模拟域名
-    openurl: 'http://127.0.0.1:9000/index.html', //自动打开的url
+    openurl: 'http://127.0.0.1:9300/index.html', //自动打开的url
     rootPath: __dirname, //项目的根目录
     webapp: 'src/main/webapp', //前端代码的根目录
     mock: 'src/test/mock', //mock文件的根目录
@@ -37,6 +37,15 @@ module.exports = {
             "data": "src/test/mock/tdd/oglobal.tdd,src/test/mock/tdd/index.tdd" // tdd for fmpp
         }
     ],
+    sprite: { // sprite config options
+        imgSrcPath: 'styles/img/sourceSprites', //imgs source dir. required
+        imgDistPath: 'styles/img/distSprites',//sprites generate dir. required
+        scssPath: 'styles/scss/sprites', //scss generate  dir . required
+        imgPrefix: 'incon-sprites-',// the prefix of image name .not required
+        imgReferPath: '/styles/img/distSprites', // the url refer path for scss. required
+        templateType: 'px', // the type of template for generate css , not required
+        algorithm: 'binary-tree'// the algoritm for generate scss . not required 
+    },
     //required
     mimgURLPrefix: {
         develop: '', //the rootpath of static resource during develop phase

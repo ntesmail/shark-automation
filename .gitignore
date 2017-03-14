@@ -1,6 +1,4 @@
 node_modules
-.tmp
-build
 test_files/.tmp
 test_files/build
 test_files/node_modules

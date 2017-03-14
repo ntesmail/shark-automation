@@ -1,4 +1,5 @@
-
+<div class="js-nav-target">
+	<h1 class="page-header">build-tasks</h1>
 	<div class="explanation">
 		<p>Shark-automation提供了用于源码的打包构建和静态资源处理的gulp任务集，例如：静态资源 的压缩，md5等。用户可根据自己的项目需要对这些任务集进行选择性的组装。</p>
         <p>以下是提供的gulp任务列表，包含功能及依赖说明:</p>
@@ -14,7 +15,8 @@
         <p>copy-build: 把构建好的资源拷贝进最终的构建目录</p>
         <p>zip：compress files to zip取决于gulp-zip，md5</p>
         <p>zip: 文件zip压缩 基于gulp-zip、md5</p>
-        	<pre><code class="language-markup">
+	</div>
+	<pre><code class="language-markup">
 var gulp = require('gulp'),
     argv = require('yargs').argv,
     runSequence = require('run-sequence'),
@@ -51,5 +53,5 @@ gulp.task('build', function(cb) {
 
 });
 </code></pre>
-	</div>
 
+</div>
